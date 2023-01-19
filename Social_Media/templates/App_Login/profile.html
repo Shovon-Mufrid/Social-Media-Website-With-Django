@@ -1,0 +1,49 @@
+{% extends 'navbar.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %} {{title}} {% endblock title_block %}
+{% block css_block %}
+    
+{% endblock css_block %}
+    
+{% block block_body %}
+    <form method="POST" enctype="multipart/form-data">
+        {{form|crispy}}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock block_body %}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
