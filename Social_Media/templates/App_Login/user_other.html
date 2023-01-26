@@ -1,0 +1,56 @@
+{% extends 'navbar.html' %}
+{% block title_block %}  {{user_other.user_profile.full_name}} (@{{user_other.username}})  {% endblock title_block %}
+
+{% block css_block %}
+    <style>
+        .crop{
+            width: 200px;
+            height: 200px;
+            overflow: hidden;          
+        }
+        .crop img{
+            width: 400px;
+            height: 300px;
+            margin: -75px 0 0 -100px;
+        }
+        
+    </style>
+{% endblock css_block %}
+
+{% block body_block %}
+ 
+<div class="row">
+    <div class="col-sm-4">
+        {% if user_other.user_profile.profile_pic %}
+        <img src="/media/{{user_other.user_profile.profile_pic}}" width="250px" height="250px" alt="Profile Image" class="rounded-circle" >
+        {% else %}
+        <img src="/media/default.png" width="250px" height="250px" alt="Default Image" class="rounded-circle">
+        {% endif %}
+    </div>
+    <div class="col-sm-8">
+        <h3>@{{user_other.username}} &nbsp;            
+            {% if not already_followed %}
+            <a href="{% url 'App_Login:follow' username=user_other.username %}" class="btn btn-sm btn-primary">Follow</a>
+            {% else %}
+            <a href="{% url 'App_Login:unfollow' username=user_other.username %}" class="btn btn-sm btn-warning">Unfollow</a>
+            {% endif %}
+                
+           </h3><br>   
+        <h4> {{user_other.author_post.count}} Posts &nbsp; &nbsp; {{user.following.count}} Followers  &nbsp; &nbsp; {{user_other.follower.count}} Following</h4>
+        <br>
+        <h4>{{user_other.user_profile.full_name}}</h4>
+        <h6>{{user_other.user_profile.description|linebreaks}}</h6>
+    </div>
+</div>
+<hr>
+<br><br>
+<div class="row">
+    {% for post in user_other.author_post.all %}
+    <div class="crop">
+        <img src="/media/{{post.image}}" title="{{post.caption}}">
+        <p>{{post.caption}}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock body_block %}

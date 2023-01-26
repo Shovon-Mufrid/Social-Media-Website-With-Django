@@ -5,10 +5,10 @@
     
 {% endblock css_block %}
     
-{% block block_body %}
+{% block body_block %}
     <form method="POST" enctype="multipart/form-data">
         {{form|crispy}}
-        {% csrf_token %}
+        {% csrf_token %}s
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
@@ -25,7 +25,7 @@
 
 
 
-{% endblock block_body %}
+{% endblock  %}
     
 
 
