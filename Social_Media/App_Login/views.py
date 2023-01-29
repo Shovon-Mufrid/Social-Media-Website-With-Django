@@ -71,7 +71,7 @@ def profile(request):
 def user(request, username):
     user_other=User.objects.get(username=username)
     already_followed = Follow.objects.filter(follower=request.user, following = user_other)
-    if user == request.user:
+    if user_other == request.user:
         return HttpResponseRedirect(reverse('App_Login:profile'))
     return render(request, 'App_Login/user_other.html', context={'user_other':user_other, 'already_followed': already_followed})
 

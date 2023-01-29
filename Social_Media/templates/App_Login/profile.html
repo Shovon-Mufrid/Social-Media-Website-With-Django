@@ -2,15 +2,36 @@
 {% load crispy_forms_tags %}
 {% block title_block %} {{title}} {% endblock title_block %}
 {% block css_block %}
-    
+<style>
+    .profile{
+        width: 550px;
+        margin: auto;
+        border: 3px solid rgba(21, 94, 118, 0.806);
+        padding: 40px;
+    }
+    .profile form button{
+        width: 100%;
+        background-color: rgba(21, 94, 118, 0.806);
+        color: azure;
+    }
+    .profile h3{
+        text-align: center;
+        color: rgba(21, 94, 118, 0.806);
+        padding-bottom: 20px;
+        text-decoration: underline;
+    }
+   </style> 
 {% endblock css_block %}
     
 {% block body_block %}
+<div class="profile"> 
+    <h3>My Profile</h3> 
     <form method="POST" enctype="multipart/form-data">
         {{form|crispy}}
-        {% csrf_token %}s
+        {% csrf_token %}
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+</div>
 
 
 
