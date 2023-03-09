@@ -7,8 +7,13 @@ from App_Login.models import UserProfile, Follow
 from django.contrib.auth.forms import AuthenticationForm
 from App_Social.forms import PostForm
 from django.contrib.auth.models import User
+
+# SEND MAIL
+from django.conf import settings
+from django.core.mail import send_mail
 # Create your views here.
 
+# SIGNUP 
 def sign_up(request):
     form = CreateNewUser()
     registered = False
@@ -19,9 +24,21 @@ def sign_up(request):
             registered = True 
             user_profile = UserProfile(user=user) #models.
             user_profile.save()
+
+            # mail
+            # login(request, user)
+            # subject = 'Greetings!!!'
+            # message = f'Hi, {user.username}, Thank you for joining us.'
+            # email_from = settings.EMAIL_HOST_USER
+            # recipient_list = [user.email,]
+            # send_mail(subject, message, email_from, recipient_list)
+
             return HttpResponseRedirect(reverse('App_Login:login'))
     return render(request, 'App_Login/signup.html', context={'title':'Sign Up, Instagram', 'form': form})  
 
+
+
+# LOGIN
 def login_page(request):
     form = AuthenticationForm()
     if request.method == 'POST':
