@@ -28,10 +28,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'App_Login', 'App_Social',
-    'crispy_forms', 
+    'crispy_forms', 'crispy_bootstrap4',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -121,12 +122,12 @@ MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = 'media/'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'mia.md.mufrid@gmail.com' #sender's email-id
-EMAIL_HOST_PASSWORD = '$iHateMyLife@100%' #password associated with above email-id
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'mia.md.mufrid@gmail.com' #sender's email-id
+# EMAIL_HOST_PASSWORD = '$iHateMyLife@100%' #password associated with above email-id
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

@@ -13,7 +13,7 @@ class UserProfile(models.Model):
     instagram = models.URLField(blank=True)
 
     def __str__(self):
-        return self.user
+        return str(self.user)
     
 class Follow(models.Model):
     follower = models.ForeignKey(User, on_delete=models.CASCADE, related_name='follower')
