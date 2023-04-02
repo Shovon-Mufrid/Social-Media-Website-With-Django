@@ -1,6 +1,7 @@
 django
 django-crsipy-forms
 pillow
+crispy_bootstrap4
 
 
 
